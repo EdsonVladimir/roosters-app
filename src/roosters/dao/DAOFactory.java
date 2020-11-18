@@ -16,6 +16,6 @@ public abstract class DAOFactory {
 	    }
 	  }
 
-	public abstract AuthDAO getAuthDAO();
+
 
 }

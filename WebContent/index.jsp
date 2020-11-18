@@ -7,11 +7,23 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1 id="hola">dasdsads</h1>
-	<script src="query-3.5.1.min.js"></script>
+	<h1 id="hola">HolaMundo</h1>
+	<script src="js/jquery-3.5.1.min.js"></script>
 	<script>
 	
-		$("#hola").html("felipe")
+	$.ajax({
+        type: 'POST',
+        url: './AuthServlet?accion=singnIn',
+        dataType: "json",
+        data: {
+            json: JSON.stringify({})
+        }, success: function (data, textStatus, jqXHR) {
+            resolve(data)
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+            reject('Error en la petición')
+        }
+    });
 	
 	</script>
 </body>

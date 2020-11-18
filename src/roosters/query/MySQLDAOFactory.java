@@ -4,7 +4,6 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-import roosters.dao.AuthDAO;
 import roosters.dao.DAOFactory;
 
 public class MySQLDAOFactory extends DAOFactory{    
@@ -30,10 +29,6 @@ public class MySQLDAOFactory extends DAOFactory{
 	    return cnx;
 	}
 
-	@Override
-	public AuthDAO getAuthDAO() {
-		return new AuthQuery();
-	}
 
 
 }
