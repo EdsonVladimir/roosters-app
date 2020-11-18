@@ -1,5 +1,11 @@
 package roosters.dao;
 
-public interface McsDAO {
+import org.json.JSONObject;
 
+public interface McsDAO {
+	
+	public JSONObject save();
+	public JSONObject update();
+	public JSONObject delete();
+	public JSONObject list();
 }
