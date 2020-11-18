@@ -1,5 +1,5 @@
 package roosters.query;
 
-public class CollectiveQuery {
+public class CollectiveQuery{
 
 }
