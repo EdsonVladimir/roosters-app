@@ -13,7 +13,7 @@ public class CollectiveService {
     public JSONObject save(JSONObject json) {
         JSONObject response = null;
         try {
-        	response = dao.save();
+        	response = dao.save(json);
         } catch (Exception e) {
           e.printStackTrace();
         }

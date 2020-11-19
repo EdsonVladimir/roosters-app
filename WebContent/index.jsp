@@ -15,7 +15,6 @@
         <link href="assets/plugins/themify-icons/themify-icons.min.css" rel="stylesheet">
         <link href="assets/plugins/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
         <link href="assets/dist/css/style.css" rel="stylesheet">
-        <link href="js/jquery.dataTables.min.css" rel="stylesheet">
 </head>
 <body class="fixed">
    <div class="wrapper">
@@ -47,15 +46,18 @@
                             </div>
 							<div class="card-body">
                                 <div class="table-responsive">
-                                	<table class="table display table-bordered table-striped table-hover language-options">
+                                	<table class="table display table-bordered table-striped table-hover language-options" id="tableCollectives">
                                         <thead>
                                             <tr>
                                                 <th>Nombre</th>
                                                 <th>Organizador</th>
                                                 <th>Participantes</th>
                                                 <th>Localizacion</th>
+                                                <th>Accion</th>
                                             </tr>
                                         </thead>
+                                        <tbody id="tblCollectivesBody">
+                                        </tbody>
                                     </table>
                                 </div>
                             </div>
@@ -66,22 +68,28 @@
 	                        <div class="modal-dialog" role="document">
 	                            <div class="modal-content">
 	                                <div class="modal-header">
-	                                    <h5 class="modal-title font-weight-600" id="exampleModalLabel4">Modal title</h5>
+	                                    <h5 class="modal-title font-weight-600" id="exampleModalLabel4">Nuevo colectivo</h5>
 	                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
 	                                        <span aria-hidden="true">&times;</span>
 	                                    </button>
 	                                </div>
 	                                <div class="modal-body">
-	                                    <p class="mb-0">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its
-	                                        layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to
-	                                        using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web
-	                                        page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web
-	                                        sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on
-	                                        purpose (injected humour and the like).</p>
+										<div class="form-group">
+											<label style="font-weight: bold;">Nombre:</label>
+											<input type="text" class="form-control" id="txtName">
+										</div>
+										<div class="form-group">
+											<label style="font-weight: bold;">Organizador:</label>
+											<input type="text" class="form-control" id="txtOrganizator">
+										</div>
+										<div class="form-group">
+											<label style="font-weight: bold;">Localizacion:</label>
+											<input type="text" class="form-control" id="txtLocation">
+										</div>
 	                                </div>
 	                                <div class="modal-footer">
-	                                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-	                                    <button type="button" class="btn btn-success">Save changes</button>
+	                                    <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+	                                    <button type="button" class="btn btn-success" id="bttnGuardar">Guardar</button>
 	                                </div>
 	                            </div>
 	                        </div>
@@ -99,7 +107,6 @@
 	<script src="assets/plugins/metisMenu/metisMenu.min.js"></script>
 	<script src="assets/plugins/perfect-scrollbar/dist/perfect-scrollbar.min.js"></script>
 	<script src="assets/dist/js/sidebar.js"></script>
-    <script src="js/jquery.dataTables.min.js"></script>
-    <script src="js/collective/collective.js"></script>
+   	<script src="js/collective/collective.js"></script>
 </body>
 </html>

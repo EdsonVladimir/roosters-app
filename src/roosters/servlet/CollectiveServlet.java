@@ -11,7 +11,6 @@ import javax.servlet.http.HttpServletResponse;
 import org.json.JSONObject;
 
 import roosters.service.CollectiveService;
-import roosters.service.McsService;
 
 public class CollectiveServlet extends HttpServlet{
 
@@ -63,9 +62,16 @@ public class CollectiveServlet extends HttpServlet{
 		
 		}
 
-		private void save(HttpServletRequest request, HttpServletResponse response) {
+		private void save(HttpServletRequest request, HttpServletResponse response) throws IOException {
 			
-			
+			response.setContentType("application/json");
+	        PrintWriter pw = response.getWriter();
+	        JSONObject jsonObj = new JSONObject();
+	        JSONObject envia = new JSONObject(request.getParameter("datos"));
+	        CollectiveService service = new CollectiveService();
+
+	        jsonObj = service.save(envia);
+	        pw.print(jsonObj);
 		}
 
 }
