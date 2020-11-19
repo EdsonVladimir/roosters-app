@@ -15,6 +15,9 @@ public abstract class DAOFactory {
 	        return null;
 	    }
 	  }
+	  
+	  public abstract McsDAO getMcsDAO();
+	  public abstract CollectiveDAO getCollectiveDAO();
 
 
 

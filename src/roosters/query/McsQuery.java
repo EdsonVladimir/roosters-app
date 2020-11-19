@@ -8,9 +8,9 @@ import java.sql.SQLException;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import roosters.dao.CollectiveDAO;
+import roosters.dao.McsDAO;
 
-public class CollectiveQuery implements CollectiveDAO{
+public class McsQuery implements McsDAO{
 
 	@Override
 	public JSONObject save() {
@@ -51,12 +51,11 @@ public class CollectiveQuery implements CollectiveDAO{
             	obj = new JSONObject();
             	obj.put("id",rs.getInt("id"));
             	obj.put("names",rs.getString("names"));
-            	obj.put("location",rs.getString("localition"));
+            	obj.put("localition",rs.getString("location"));
                 data.put(obj);
             }
             
         } catch (SQLException ex) {
-        	response.put("message", ex.getLocalizedMessage());
             response.put("status", false);
             return response;
         } finally {

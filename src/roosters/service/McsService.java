@@ -2,13 +2,13 @@ package roosters.service;
 
 import org.json.JSONObject;
 
-import roosters.dao.CollectiveDAO;
 import roosters.dao.DAOFactory;
+import roosters.dao.McsDAO;
 
-public class CollectiveService {
+public class McsService {
 	
     DAOFactory factory = DAOFactory.getDAOFactory(DAOFactory.MYSQL);
-    CollectiveDAO dao = factory.getCollectiveDAO();
+    McsDAO dao = factory.getMcsDAO();
 
     public JSONObject save(JSONObject json) {
         JSONObject response = null;

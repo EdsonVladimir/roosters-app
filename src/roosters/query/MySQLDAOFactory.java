@@ -4,16 +4,18 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
+import roosters.dao.CollectiveDAO;
 import roosters.dao.DAOFactory;
+import roosters.dao.McsDAO;
 
 public class MySQLDAOFactory extends DAOFactory{    
 	
 	static {
-	    try {
-	        Class.forName("com.mysql.jdbc.Driver");
-	    } catch (ClassNotFoundException e) {
-	        e.printStackTrace();
-	    }
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+        } catch (Exception ex) {
+        	System.out.println("Error: " + ex.getLocalizedMessage());
+        }
 	}
 
 	public static Connection getConnection() {
@@ -27,6 +29,16 @@ public class MySQLDAOFactory extends DAOFactory{
 	            System.out.println(e.getMessage());
 	        }
 	    return cnx;
+	}
+
+	@Override
+	public McsDAO getMcsDAO() {
+		return new McsQuery();
+	}
+
+	@Override
+	public CollectiveDAO getCollectiveDAO() {
+		return new CollectiveQuery();
 	}
 
 
