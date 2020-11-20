@@ -62,9 +62,9 @@
                                 </div>
                             </div>
                         </div>
-                        <button type="button" class="btn btn-success mb-2" data-toggle="modal" data-target="#exampleModal1">Agreagar un colectivo
+                        <button type="button" class="btn btn-success mb-2" data-toggle="modal" data-target="#modal1">Agreagar un colectivo
                         </button>
-						<div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel4" aria-hidden="true">
+						<div class="modal fade" id="modal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel4" aria-hidden="true">
 	                        <div class="modal-dialog" role="document">
 	                            <div class="modal-content">
 	                                <div class="modal-header">

@@ -31,6 +31,42 @@ const HttpRequest = {
                 }
             });
         });
+    },
+	delete(json) {
+        return new Promise((resolve, reject) => {
+            $.ajax({
+                type: 'POST',
+                url: './CollectiveServlet?accion=delete',
+                dataType: "json",
+				data:{
+					datos:JSON.stringify(json)
+				},
+                success: function (data, textStatus, jqXHR) {
+                    resolve(data);
+                },
+                error: function (jqXHR, textStatus, errorThrown) {
+                    reject('Error en la petición')
+                }
+            });
+        });
+    },
+	getDataCollective(json) {
+        return new Promise((resolve, reject) => {
+            $.ajax({
+                type: 'POST',
+                url: './CollectiveServlet?accion=getDataCollective',
+                dataType: "json",
+				data:{
+					datos:JSON.stringify(json)
+				},
+                success: function (data, textStatus, jqXHR) {
+                    resolve(data);
+                },
+                error: function (jqXHR, textStatus, errorThrown) {
+                    reject('Error en la petición')
+                }
+            });
+        });
     }
 };
 
@@ -51,7 +87,7 @@ const DOMEvents = {
 					htmlBody += "<td>"+dataXTable[i].organizator+"</td>";
 					htmlBody += "<td>"+dataXTable[i].participators+"</td>";
 					htmlBody += "<td>"+dataXTable[i].location+"</td>";
-					htmlBody += '<td><a href="#" class="btn btn-success-soft btn-sm mr-1"><i class="far fa-eye"></i>'+
+					htmlBody += '<td><a onClick="javascript:openModalUpdate('+dataXTable[i].id+')" class="btn btn-success-soft btn-sm mr-1"><i class="far fa-eye"></i>'+
 					'</a><a href="#" class="btn btn-danger-soft btn-sm"><i class="far fa-trash-alt"></i></a></td>';
 					htmlBody += "</tr>";
 				}
@@ -72,7 +108,7 @@ const DOMEvents = {
 				HttpRequest.save({namesR: name, organizatorR:organizator, locationR:location}).then(data =>{
 					if(data.status){
 						alert("Se inserto correctamente");
-						location.reload(true);
+						window.location.reload();
 					}
 				});
 			}else{
@@ -83,7 +119,21 @@ const DOMEvents = {
 };
 
 
-
+function openModalUpdate(codigo){	
+	if(codigo != null){
+		HttpRequest.getDataCollective({id:codigo}).then(data =>{
+			if(data.status){
+				$("#modal1").modal("show");
+				$("#exampleModalLabel4").html("Actualizar colectivo");
+				$("#txtName").val(data.data[0].names);
+				$("#txtOrganizator").val(data.data[0].organizator);
+				$("#txtLocation").val(data.data[0].location);	
+			}else{
+				alert("No se ha podido obtener los datos de este colectivo.");
+			}
+		});
+	}
+}
 
 init = () => {
     DOMEvents.init();

@@ -8,5 +8,6 @@ public interface CollectiveDAO {
 	public JSONObject update();
 	public JSONObject delete();
 	public JSONObject list();
+	public JSONObject getDataCollective(JSONObject json);
 
 }

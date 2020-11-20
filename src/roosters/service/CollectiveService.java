@@ -49,5 +49,16 @@ public class CollectiveService {
         }
         return response;
     }
+    
+    public JSONObject getDataCollective(JSONObject json) {
+        JSONObject response = null;
+        try {
+        	response = dao.getDataCollective(json);
+        } catch (Exception e) {
+          e.printStackTrace();
+        }
+        return response;
+    }
+    
 
 }

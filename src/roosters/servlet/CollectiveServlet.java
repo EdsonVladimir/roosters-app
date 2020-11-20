@@ -35,11 +35,26 @@ public class CollectiveServlet extends HttpServlet{
 	                case "update":
 	                	update(request, response);
 	                	break;
+	                case "getDataCollective":
+	                	getDataCollective(request, response);
+	                	break;
 	                default:
 	                    break;
 	            }
 	        }
 	    }
+
+		private void getDataCollective(HttpServletRequest request, HttpServletResponse response) throws IOException {
+			response.setContentType("application/json");
+	        PrintWriter pw = response.getWriter();
+	        JSONObject jsonObj = new JSONObject();
+	        JSONObject envia = new JSONObject(request.getParameter("datos"));
+	        CollectiveService service = new CollectiveService();
+
+	        jsonObj = service.getDataCollective(envia);
+	        pw.print(jsonObj);
+		
+	}
 
 		private void update(HttpServletRequest request, HttpServletResponse response) {
 		// TODO Auto-generated method stub
